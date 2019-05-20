@@ -33,7 +33,7 @@ for(idx in 1:nrow(dat_promo)){ #Loop All promo data (for each row)
   dat_normal <- raw_normal[SKU == dat_promo$SKU[idx]]
   
   #If normal data is empty or when normal data day 1 is later than promo date
-  if(nrow(dat_normal) == 0 || (dat_promo$Date[1] < as.Date(dat_normal$Date[1]))){
+  if(nrow(dat_normal) == 0 || (dat_promo$Date[idx] < as.Date(dat_normal$Date[1]))){
     baseline <- NULL #Set baseline to null
   }else{
     #Aggregated normal data based on NET_SALES, SALES_QTY_UNIT, CM_AMT group by date
